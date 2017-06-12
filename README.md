@@ -8,7 +8,7 @@ Getting Set Up
 5. When you've completed the test, create a pull request and fill in the appropriate fields.
 
 Code Test
-We'd like you to create an app working with an API (https://www.restcountries.eu) that lists countries in a RecyclerView, displays their flag and currency name in another Activity, and lets the user know if they've viewed a countries info already. You are allowed to use any third-party libraries you like and install them in your project however you'd like, but using maven is strongly preferred.
+We'd like you to create an app working with an API (https://www.restcountries.eu) that lists countries in a RecyclerView, displays their flag and currency name in another Activity, and lets the user know if they've viewed a country's info already. You are allowed to use any third-party libraries you like and install them in your project however you'd like, but using Maven is strongly preferred.
 
 Requirements:
 1. Retrieve all info from https://www.restcountries.eu
@@ -22,4 +22,4 @@ Requirements:
 Bonuses:
 1. Looks pretty (proper spelling, indentation, code formatting, etc., and also adheres to material design guidelines for visual elements)
 2. Scales properly on all phones and tablets
-3. Uses the maven repository for all dependencies
+3. Uses the Maven repository for all dependencies
