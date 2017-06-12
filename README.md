@@ -7,7 +7,7 @@ Getting Set Up
 4. All of your code should be committed to this branch.  We're not just interested in your code, but also in how you write your commit messages and what you commit when. Please don't commit the entire codebase when you're done, keep your commits atomic.
 5. When you've completed the test, create a pull request and fill in the appropriate fields.
 
-Code Test
+Code Test: 
 We'd like you to create an app working with an API (https://www.restcountries.eu) that lists countries in a RecyclerView, displays their flag and currency name in another Activity, and lets the user know if they've viewed a country's info already. You are allowed to use any third-party libraries you like and install them in your project however you'd like, but using Maven is strongly preferred.
 
 Requirements:
