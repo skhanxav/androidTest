@@ -5,6 +5,7 @@
 /.idea/libraries
 .DS_Store
 /build
+/svg-android
 /captures
 .externalNativeBuild
 .idea

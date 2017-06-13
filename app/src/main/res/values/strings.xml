@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CountryInfo</string>
     <string name="title_activity_main">Countries</string>
+    <string name="currency_text">Used Currency(s): </string>
 </resources>

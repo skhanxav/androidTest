@@ -21,4 +21,16 @@ public class CurrencyModel {
     public String getSymbol() {
         return symbol;
     }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
 }

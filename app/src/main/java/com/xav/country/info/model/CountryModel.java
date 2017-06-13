@@ -29,4 +29,19 @@ public class CountryModel {
         return currencies;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNumericCode(String numericCode) {
+        this.numericCode = numericCode;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public void setCurrencies(List<CurrencyModel> currencies) {
+        this.currencies = currencies;
+    }
 }

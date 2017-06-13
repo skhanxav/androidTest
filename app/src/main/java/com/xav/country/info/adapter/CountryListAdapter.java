@@ -1,7 +1,7 @@
 package com.xav.country.info.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.xav.country.info.R;
+import com.xav.country.info.activity.CountryDetailsActivity;
+import com.xav.country.info.database.CountryTable;
 import com.xav.country.info.model.CountryModel;
+import com.xav.country.info.util.ConstantUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,10 +29,12 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
 
     private Context context;
     private List<CountryModel> country;
+    private HashMap<String, CountryModel> visitedCountry;
 
     public CountryListAdapter(Context context) {
         this.context = context;
         this.country = new ArrayList<>();
+        this.visitedCountry = new HashMap<>();
     }
 
     @Override
@@ -40,6 +47,25 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CountryModel value = country.get(position);
         holder.countryName.setText(value.getName());
+        if (visitedCountry.containsKey(value.getNumericCode())) {
+            holder.isVisited.setVisibility(View.VISIBLE);
+        } else {
+            holder.isVisited.setVisibility(View.INVISIBLE);
+        }
+        /** Can also be start from main activity using interface concept */
+        holder.rootLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!visitedCountry.containsKey(value.getNumericCode())) {
+                    visitedCountry.put(value.getNumericCode(), value);
+                    CountryTable.insertCountry(value);
+                    notifyDataSetChanged();
+                }
+                Intent goToDetailActivity = new Intent(context, CountryDetailsActivity.class);
+                goToDetailActivity.putExtra(ConstantUtil.COUNTRY, new Gson().toJson(value));
+                context.startActivity(goToDetailActivity);
+            }
+        });
     }
 
     @Override
@@ -47,10 +73,26 @@ public class CountryListAdapter extends RecyclerView.Adapter<CountryListAdapter.
         return country.size();
     }
 
+    /**
+     * Add all api response to array list
+     * called from MainActivity
+     */
     public void addAll(List<CountryModel> list) {
         if (list.size() > 0) {
             country.clear();
             country.addAll(list);
+            notifyDataSetChanged();
+        }
+    }
+
+    /**
+     * Add visited country list to array list
+     * called from MainActivity
+     */
+    public void addAllVisitedCountry(HashMap<String, CountryModel> list) {
+        if (list.size() > 0) {
+            visitedCountry.clear();
+            visitedCountry.putAll(list);
             notifyDataSetChanged();
         }
     }
