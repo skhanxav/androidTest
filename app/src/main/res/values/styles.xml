@@ -10,4 +10,5 @@
     <integer-array name="progress_bar_colors_theme">
         <item>@color/colorPrimary</item>
     </integer-array>
+
 </resources>
