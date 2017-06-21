@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 if (countries != null) {
                     ref.get().onUpdateVisitedList(countries);
                 }
-                /**Api call */
+                /** Api call */
                 ref.get().loadCountryListFromNetwork();
             }
         }
